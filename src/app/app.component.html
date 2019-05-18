@@ -1,7 +1,27 @@
+<!--<div class="cardInner">-->
+  <!--<app-header></app-header>-->
+  <!--<div class="main">-->
+    <!--<app-list-items></app-list-items>-->
+    <!--<app-item-details></app-item-details>-->
+  <!--</div>-->
+  <!--<app-footer></app-footer>-->
+<!--</div>-->
 
-<app-header></app-header>
-<div class="main">
-  <app-list-items></app-list-items>
-  <app-item-details></app-item-details>
+<div
+  gdAreas="header header | side content | footer footer"
+  gdGap="16px"
+  gdRows="auto auto auto">
+  <div gdArea="header">
+    <app-header></app-header>
+  </div>
+    <div gdArea="side" *ngIf="isLoaded">
+      <app-list-items [listItems] = "listItems" (eventClicked)="childEventClicked($event)"></app-list-items>
+    </div>
+    <div gdArea="content" *ngIf="isLoaded">
+      <app-item-details [listItems] = "listItems" [id]="clickedEvent"></app-item-details>
+      <!--<app-item-details [listItems] = "listItems" ></app-item-details>-->
+    </div>
+  <div gdArea="footer">
+    <app-footer></app-footer>
+  </div>
 </div>
-<app-footer></app-footer>

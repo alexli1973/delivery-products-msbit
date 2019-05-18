@@ -9,6 +9,8 @@ import { ListItemsComponent } from './list-items/list-items.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import {GetDataService} from './shared/services/get-data.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,16 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     FooterComponent,
     ListItemsComponent,
     ItemDetailsComponent,
-   // HttpClientModule,
+    // HttpClientModule,
     // HttpClient
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   providers: [GetDataService],

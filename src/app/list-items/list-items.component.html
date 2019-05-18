@@ -1,9 +1,22 @@
-<div *ngIf="listItems">
-  {{listItems | json}}
-</div>
-<!--<div *ngIf="objNew">-->
-  <!--{{this.objNew | json}}-->
-<!--</div>-->
+<!--SELECTED - {{selectedItem | json}}-->
+
+
+
+  <div *ngFor="let item of listItems; let idx = index">
+    <p>{{idx}}</p>
+    <p>{{item.id}}</p>
+    <p>{{item.name}}</p>
+    <p>{{item.description}}</p>
+    <p>Price: {{item.price}}</p>
+    <p>{{item.creationDate}}</p>
+    <img src="{{item.thumbnailUrl}}" alt="{{item.name}}">
+    <p>{{item.thumbnailUrl}}</p>
+    <p>{{item.url}}</p>
+    <button (click)="showDetails(item.id)">Details</button>
+
+  </div>
+
+
 
 
 
