@@ -1,3 +1,19 @@
 .header {
   background: aqua;
 }
+.main-container {
+  @media only screen and (min-width: 961px){
+    width: calc(100%/2);
+  }
+  @media only screen and (max-width: 400px){
+    width: 100%;
+  }
+
+}
+.list {
+ float: left;
+}
+.details {
+  float: right;
+}
+

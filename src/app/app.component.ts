@@ -12,8 +12,9 @@ export class AppComponent implements OnInit {
 
   listItems: Item[] = [];
   isLoaded = false;
+  isSelected = false;
   @Output() clickedEvent: Event;
-  //public clickedEvent: Item;
+  // public clickedEvent: Item;
 
   constructor(private dataService: GetDataService) { }
 
@@ -49,5 +50,6 @@ export class AppComponent implements OnInit {
 
   childEventClicked(event: Event) {
     this.clickedEvent = event;
+    this.isSelected = true;
   }
 }

@@ -1,26 +1,109 @@
 <!--SELECTED - {{selectedItem | json}}-->
 
+<!--<app-search ></app-search>-->
+
+  <form id="filter">
+    <input type="text"
+           name="term"
+           [(ngModel)]="term"
+           [placeholder]="searchPlaceholder"/>
+  </form>
+  <!--<form id="sort">-->
+    <!--<input type="text"-->
+           <!--name="term"-->
+           <!--[(ngModel)]="sort"-->
+           <!--[placeholder]="sortPlaceholder"/>-->
+  <!--</form>-->
+
+<div>
+  <select class="sort" [(ngModel)]="selectedValue">
+    <option value="name">Name</option>
+    <option value="id">ID</option>
+    <option value="price">Price</option>
+  </select>
+</div>
+
+  <!--<div *ngFor="let item of listItems | filter: term | sort: selectedValue; let idx = index">-->
+<!--<div class="wrapper" *ngFor="let item of pagedItems | filter: term | sort: selectedValue; let idx = index">-->
+  <!--<div class="product-img">-->
+    <!--<img src="{{item.thumbnailUrl}}" alt="{{item.name}}" >-->
+  <!--</div>-->
+  <!--<div class="product-info">-->
+    <!--<div class="product-text">-->
+      <!--<h4>{{item.name | uppercase }}</h4>-->
+      <!--<h6>Date: {{item.creationDate | date}} / ID: {{item.id }}</h6>-->
+      <!--<p>{{item.description}}</p>-->
+    <!--</div>-->
+
+    <!--<div class="product-price-btn">-->
+      <!--<p><span>{{item.price}}</span>$</p>-->
+      <!--<button (click)="showDetails(item.id)">more info</button>-->
+    <!--</div>-->
 
 
-  <div *ngFor="let item of listItems; let idx = index">
-    <p>{{idx}}</p>
-    <p>{{item.id}}</p>
-    <p>{{item.name}}</p>
-    <p>{{item.description}}</p>
-    <p>Price: {{item.price}}</p>
-    <p>{{item.creationDate}}</p>
-    <img src="{{item.thumbnailUrl}}" alt="{{item.name}}">
-    <p>{{item.thumbnailUrl}}</p>
-    <p>{{item.url}}</p>
-    <button (click)="showDetails(item.id)">Details</button>
-
-  </div>
-
-
-
-
-
-<!--<div *ngIf="listItems">-->
-  <!--<ul></ul>-->
+  <!--</div>-->
 <!--</div>-->
+
+<!---->
+<section class="card-container">
+  <article class="c-card c-card--wide" *ngFor="let item of pagedItems | filter: term | sort: selectedValue; let idx = index">
+
+    <header class="c-card__header">
+      <img src="{{item.thumbnailUrl}}" alt="{{item.name}}"/>
+    </header>
+
+    <div class="c-card__body">
+      <h2 class="c-card__title">
+        {{item.name}}
+      </h2>
+      <p class="c-card__subtitle">
+        Date: {{item.creationDate | date}} / ID: {{item.id }}
+      </p>
+      <p class="c-card__intro">
+        {{item.description}}
+      </p>
+    </div>
+
+    <footer class="c-card__footer">
+      <p>Price: {{item.price}}</p>
+      <div class="product-price-btn">
+        <button (click)="showDetails(item.id)">more info</button>
+      </div>
+    </footer>
+
+  </article>
+</section>
+<!---->
+
+  <!--<mat-list-item *ngFor="let item of pagedItems | filter: term | sort: selectedValue; let idx = index">-->
+    <!--<p>{{idx}}</p>-->
+
+    <!--<p>{{item.description}}</p>-->
+    <!--<p>Price: {{item.price}}</p>-->
+
+    <!--<p>{{item.thumbnailUrl}}</p>-->
+    <!--<p>{{item.url}}</p>-->
+    <!--<button (click)="showDetails(item.id)">Details</button>-->
+  <!--</mat-list-item>-->
+<!--</div>-->
+
+<!-- pager -->
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+  <li [ngClass]="{disabled:pager.currentPage === 1}">
+    <a (click)="setPage(1)">First</a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === 1}">
+    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+  </li>
+  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+    <a (click)="setPage(page)">{{page}}</a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+    <a (click)="setPage(pager.totalPages)">Last</a>
+  </li>
+</ul>
+
 

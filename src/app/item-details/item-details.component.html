@@ -2,11 +2,13 @@
   item-details - {{selectedItem | json}}
 </p>
  <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
+
    <label for="name">Name</label>
    <input id="name" formControlName="name" required
           class="form-control"
           type="text"
           [(ngModel)] = "selectedItem.name">
+
    <div *ngIf="formEdit.controls['name'].invalid && formEdit.controls['name'].touched"
         class="alert alert-danger full-width">
      Name must be at least 4 characters long.

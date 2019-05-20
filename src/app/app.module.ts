@@ -11,6 +11,20 @@ import {GetDataService} from './shared/services/get-data.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SearchComponent } from './list-items/search/search.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
+import { SortPipe } from './shared/pipes/sort.pipe';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatButtonModule, MatCardModule,
+  MatDatepickerModule,
+  MatDialogModule, MatFormFieldModule, MatIconModule,
+  MatInputModule, MatMenuModule,
+  MatNativeDateModule,
+  MatProgressBarModule, MatTableModule, MatToolbarModule, MatSidenavModule, MatListModule
+} from '@angular/material';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +33,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FooterComponent,
     ListItemsComponent,
     ItemDetailsComponent,
+    SearchComponent,
+    FilterPipe,
+    SortPipe,
+    ModalComponent,
     // HttpClientModule,
     // HttpClient
   ],
@@ -29,8 +47,24 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-
+    MatDialogModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatListModule
   ],
+ // exports: [MatSidenavModule],
+  entryComponents: [ModalComponent],
   providers: [GetDataService],
   bootstrap: [AppComponent]
 })
