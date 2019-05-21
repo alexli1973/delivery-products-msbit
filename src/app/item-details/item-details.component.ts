@@ -7,11 +7,10 @@ import {ModalComponent} from '../modal/modal.component';
 @Component({
   selector: 'app-item-details',
   templateUrl: './item-details.component.html',
-  styleUrls: ['./item-details.component.sass']
+  styleUrls: ['./item-details.component.scss']
 })
 export class ItemDetailsComponent implements OnInit, DoCheck, AfterContentChecked {
 
-  // public clickedEvent: Event;
   @Input() id: Event;
   @Input() listItems: Item[] = [];
   @Output() itemEdit = new EventEmitter<Item>();
@@ -47,13 +46,8 @@ export class ItemDetailsComponent implements OnInit, DoCheck, AfterContentChecke
     this.selectedItem = this.listItems.find(item => item.id === id);
   }
 
-  getItemDetails(id) {
-    return this.listItems.find(item => item.id === id);
-  }
-
   onSubmit() {
    // console.log(this.formEdit.value);
-    debugger;
     console.log(this.selectedItem.id);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;

@@ -1,9 +1,10 @@
-.header {
-  background: aqua;
-}
+//body {
+//  background-color: #f1f1f1;
+//}
+
 .main-container {
   @media only screen and (min-width: 961px){
-    width: calc(100%/2);
+    width: calc(99%/2);
   }
   @media only screen and (max-width: 400px){
     width: 100%;

@@ -1,6 +1,3 @@
- <p>
-  item-details - {{selectedItem | json}}
-</p>
  <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
 
    <label for="name">Name</label>
@@ -10,7 +7,7 @@
           [(ngModel)] = "selectedItem.name">
 
    <div *ngIf="formEdit.controls['name'].invalid && formEdit.controls['name'].touched"
-        class="alert alert-danger full-width">
+        class="alert alert-danger">
      Name must be at least 4 characters long.
    </div>
 
@@ -21,7 +18,7 @@
           [(ngModel)]="selectedItem.description">
 
    <div *ngIf="formEdit.controls['description'].invalid && formEdit.controls['description'].touched"
-        class="alert alert-danger full-width">
+        class="alert alert-danger">
      Description must be at least 4 characters long.
    </div>
 
@@ -32,8 +29,8 @@
           [(ngModel)]="selectedItem.price">
 
    <div *ngIf="formEdit.controls['price'].invalid && formEdit.controls['price'].touched"
-        class="alert alert-danger full-width">
-     Price must be at least 4 characters long.
+        class="alert alert-danger">
+     Price must be more than zero.
    </div>
-   <input type="submit" value="Save">
+   <input type="submit" value="Save" [disabled]="!formEdit.valid">
  </form>

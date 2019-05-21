@@ -1,0 +1,22 @@
+@import "~src/variables";
+input[type="submit"] {
+  float: left;
+  display: inline-block;
+  height: 50px;
+  width: 176px;
+  //margin: 0 40px 0 16px;
+  box-sizing: border-box;
+  border: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: $primary-color;
+  cursor: pointer;
+  outline: none;
+  &:disabled {
+    background-color: $secondary-color;
+    cursor: none;
+  }
+}

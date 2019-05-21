@@ -1,1 +1,8 @@
-$header-color: green;
+$header-color: white;
+$primary-color: #23527c;
+$secondary-color: #f1f1f1;
+$typography-color: #555555;
+$hover-color: desaturate(lighten($primary-color, 18), 35);
+$alert-color: #ff5251;
+$item-padding: 16px;
+
